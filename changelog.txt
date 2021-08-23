@@ -2,6 +2,7 @@
 next
 ----
 - forked from stu's original hovercraft
+- changed name to "hovercraft_ad"
 - replaced calls to deprecated methods
 - fixed horizontal view & vertical position when attached for newer Minetest versions
 - changed craft recipe to use mesecons_pistons
