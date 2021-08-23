@@ -1,9 +1,4 @@
 
 TODO:
-- make dependencies optional:
-	- mesecons_pistons
-	- default
-	- wool
-	- dye
 - add localization support
 - add Spanish translation

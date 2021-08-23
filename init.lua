@@ -54,38 +54,56 @@ hover:register_hovercraft(":hovercraft:hover_yellow" ,{
 	bounce = 0.25,
 })
 
-minetest.register_craft({
-	output = 'hovercraft:hover_red',
-	recipe = {
-		{'', 'mesecons:piston', 'default:steelblock'},
-		{'wool:red', 'wool:red', 'wool:red'},
-		{'wool:black', 'wool:black', 'wool:black'},
-	}
-})
 
-minetest.register_craft({
-	output = 'hovercraft:hover_blue',
-	recipe = {
-		{'', 'mesecons:piston', 'default:steelblock'},
-		{'wool:blue', 'wool:blue', 'wool:blue'},
-		{'wool:black', 'wool:black', 'wool:black'},
-	}
-})
+local ing = {
+	piston = core.registered_items['mesecons_pistons:piston_normal_off']
+		and 'mesecons_pistons:piston_normal_off' or '',
+	block = 'default:steelblock',
+	wool_base = 'wool:black',
+}
 
-minetest.register_craft({
-	output = 'hovercraft:hover_green',
-	recipe = {
-		{'', 'mesecons:piston', 'default:steelblock'},
-		{'wool:green', 'wool:green', 'wool:green'},
-		{'wool:black', 'wool:black', 'wool:black'},
-	}
-})
+if core.registered_items[ing.block] and core.registered_items[ing.wool_base] then
+	if core.registered_items['wool:red'] then
+		minetest.register_craft({
+			output = 'hovercraft:hover_red',
+			recipe = {
+				{'', ing.piston, ing.block},
+				{'wool:red', 'wool:red', 'wool:red'},
+				{ing.wool_base, ing.wool_base, ing.wool_base},
+			}
+		})
+	end
 
-minetest.register_craft({
-	output = 'hovercraft:hover_yellow',
-	recipe = {
-		{'', 'mesecons:piston', 'default:steelblock'},
-		{'wool:yellow', 'wool:yellow', 'wool:yellow'},
-		{'wool:black', 'wool:black', 'wool:black'},
-	}
-})
+	if core.registered_items['wool:blue'] then
+		minetest.register_craft({
+			output = 'hovercraft:hover_blue',
+			recipe = {
+				{'', ing.piston, ing.block},
+				{'wool:blue', 'wool:blue', 'wool:blue'},
+				{ing.wool_base, ing.wool_base, ing.wool_base},
+			}
+		})
+	end
+
+	if core.registered_items['wool:green'] then
+		minetest.register_craft({
+			output = 'hovercraft:hover_green',
+			recipe = {
+				{'', ing.piston, ing.block},
+				{'wool:green', 'wool:green', 'wool:green'},
+				{ing.wool_base, ing.wool_base, ing.wool_base},
+			}
+		})
+	end
+
+	if core.registered_items['wool:yellow'] then
+		minetest.register_craft({
+			output = 'hovercraft:hover_yellow',
+			recipe = {
+				{'', ing.piston, ing.block},
+				{'wool:yellow', 'wool:yellow', 'wool:yellow'},
+				{ing.wool_base, ing.wool_base, ing.wool_base},
+			}
+		})
+	end
+end
