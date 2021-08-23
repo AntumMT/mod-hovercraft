@@ -1,4 +1,7 @@
 
+local S = core.get_translator("hovercraft")
+
+
 function hover:register_hovercraft(name, def)
 	local basename = name:gsub('^:', '')
 
@@ -36,14 +39,14 @@ function hover:register_hovercraft(name, def)
 
 			local pname = puncher:get_player_name()
 			if hover.ownable and self.owner and pname ~= self.owner then
-				core.chat_send_player(pname, "You cannot take " .. self.owner .. "'s hovercraft.")
+				core.chat_send_player(pname, S("You cannot take @1's hovercraft.", self.owner))
 				return
 			end
 
 			local stack = ItemStack(basename)
 			local pinv = puncher:get_inventory()
 			if not pinv:room_for_item("main", stack) then
-				core.chat_send_player(pname, "You don't have room in your inventory.")
+				core.chat_send_player(pname, S("You don't have room in your inventory."))
 				return
 			end
 
@@ -73,7 +76,7 @@ function hover:register_hovercraft(name, def)
 			elseif not self.player then
 				local pname = clicker:get_player_name()
 				if hover.ownable and self.owner and pname ~= self.owner then
-					core.chat_send_player(pname, "You cannot ride " .. self.owner .. "'s hovercraft.")
+					core.chat_send_player(pname, S("You cannot ride @1's hovercraft.", self.owner))
 					return
 				end
 

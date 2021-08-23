@@ -1,0 +1,12 @@
+# textdomain:hovercraft
+
+# Translators:
+
+
+Red Hovercraft=
+Blue Hovercraft=
+Green Hovercraft=
+Yellow Hovercraft=
+You don't have room in your inventory.=
+You cannot take @1's hovercraft.=
+You cannot ride @1's hovercraft.=

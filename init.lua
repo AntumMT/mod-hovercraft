@@ -6,8 +6,11 @@ hover.modpath = core.get_modpath(hover.modname)
 dofile(hover.modpath .. "/settings.lua")
 dofile(hover.modpath .. "/hover.lua")
 
+
+local S = core.get_translator("hovercraft")
+
 hover:register_hovercraft(":hovercraft:hover_red" ,{
-	description = "Red Hovercraft",
+	description = S("Red Hovercraft"),
 	textures = {"hovercraft_red.png"},
 	inventory_image = "hovercraft_red_inv.png",
 	max_speed = 10,
@@ -19,7 +22,7 @@ hover:register_hovercraft(":hovercraft:hover_red" ,{
 })
 
 hover:register_hovercraft(":hovercraft:hover_blue" ,{
-	description = "Blue Hovercraft",
+	description = S("Blue Hovercraft"),
 	textures = {"hovercraft_blue.png"},
 	inventory_image = "hovercraft_blue_inv.png",
 	max_speed = 12,
@@ -31,7 +34,7 @@ hover:register_hovercraft(":hovercraft:hover_blue" ,{
 })
 
 hover:register_hovercraft(":hovercraft:hover_green" ,{
-	description = "Green Hovercraft",
+	description = S("Green Hovercraft"),
 	textures = {"hovercraft_green.png"},
 	inventory_image = "hovercraft_green_inv.png",
 	max_speed = 8,
@@ -43,7 +46,7 @@ hover:register_hovercraft(":hovercraft:hover_green" ,{
 })
 
 hover:register_hovercraft(":hovercraft:hover_yellow" ,{
-	description = "Yellow Hovercraft",
+	description = S("Yellow Hovercraft"),
 	textures = {"hovercraft_yellow.png"},
 	inventory_image = "hovercraft_yellow_inv.png",
 	max_speed = 8,
