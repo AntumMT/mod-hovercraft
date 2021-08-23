@@ -10,3 +10,4 @@ next
 - made dependencies on default & wool optional (required for craft recipes)
 - changed craft recipe to optionally use basic_materials:motor
 - added localization support
+- added Spanish translation
