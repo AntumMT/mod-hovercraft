@@ -1,0 +1,9 @@
+
+next
+----
+- forked from stu's original hovercraft
+- replaced calls to deprecated methods
+- fixed horizontal view & vertical position when attached for newer Minetest versions
+- changed craft recipe to use mesecons_pistons
+- ensures there is room in inventory before picking up
+- hovercrafts can now be owned & unusable by non-owners
