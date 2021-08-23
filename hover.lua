@@ -1,5 +1,7 @@
 
 function hover:register_hovercraft(name, def)
+	local basename = name:gsub('^:', '')
+
 	minetest.register_entity(name, {
 		physical = true,
 		collisionbox = {-0.8,0,-0.8, 0.8,1.2,0.8},
@@ -38,7 +40,7 @@ function hover:register_hovercraft(name, def)
 				return
 			end
 
-			local stack = ItemStack(name)
+			local stack = ItemStack(basename)
 			local pinv = puncher:get_inventory()
 			if not pinv:room_for_item("main", stack) then
 				core.chat_send_player(pname, "You don't have room in your inventory.")
@@ -209,7 +211,7 @@ function hover:register_hovercraft(name, def)
 				return
 			end
 			pointed_thing.under.y = pointed_thing.under.y + 0.5
-			minetest.add_entity(pointed_thing.under, name, core.serialize({owner=placer:get_player_name()}))
+			minetest.add_entity(pointed_thing.under, basename, core.serialize({owner=placer:get_player_name()}))
 			itemstack:take_item()
 			return itemstack
 		end,

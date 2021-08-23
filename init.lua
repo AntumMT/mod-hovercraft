@@ -6,7 +6,7 @@ hover.modpath = core.get_modpath(hover.modname)
 dofile(hover.modpath .. "/settings.lua")
 dofile(hover.modpath .. "/hover.lua")
 
-hover:register_hovercraft("hovercraft:hover_red" ,{
+hover:register_hovercraft(":hovercraft:hover_red" ,{
 	description = "Red Hovercraft",
 	textures = {"hovercraft_red.png"},
 	inventory_image = "hovercraft_red_inv.png",
@@ -18,7 +18,7 @@ hover:register_hovercraft("hovercraft:hover_red" ,{
 	bounce = 0.5,
 })
 
-hover:register_hovercraft("hovercraft:hover_blue" ,{
+hover:register_hovercraft(":hovercraft:hover_blue" ,{
 	description = "Blue Hovercraft",
 	textures = {"hovercraft_blue.png"},
 	inventory_image = "hovercraft_blue_inv.png",
@@ -30,7 +30,7 @@ hover:register_hovercraft("hovercraft:hover_blue" ,{
 	bounce = 0.8,
 })
 
-hover:register_hovercraft("hovercraft:hover_green" ,{
+hover:register_hovercraft(":hovercraft:hover_green" ,{
 	description = "Green Hovercraft",
 	textures = {"hovercraft_green.png"},
 	inventory_image = "hovercraft_green_inv.png",
@@ -42,7 +42,7 @@ hover:register_hovercraft("hovercraft:hover_green" ,{
 	bounce = 0.5,
 })
 
-hover:register_hovercraft("hovercraft:hover_yellow" ,{
+hover:register_hovercraft(":hovercraft:hover_yellow" ,{
 	description = "Yellow Hovercraft",
 	textures = {"hovercraft_yellow.png"},
 	inventory_image = "hovercraft_yellow_inv.png",
