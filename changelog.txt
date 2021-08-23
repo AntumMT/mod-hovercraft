@@ -1,5 +1,5 @@
 
-next
+v1.0
 ----
 - forked from stu's original hovercraft
 - changed name to "hovercraft_ad"
