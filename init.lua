@@ -56,8 +56,8 @@ hover:register_hovercraft(":hovercraft:hover_yellow" ,{
 
 
 local ing = {
-	piston = core.registered_items['mesecons_pistons:piston_normal_off']
-		and 'mesecons_pistons:piston_normal_off' or '',
+	motor = core.registered_items['basic_materials:motor']
+		and 'basic_materials:motor' or '',
 	block = 'default:steelblock',
 	wool_base = 'wool:black',
 }
@@ -67,7 +67,7 @@ if core.registered_items[ing.block] and core.registered_items[ing.wool_base] the
 		minetest.register_craft({
 			output = 'hovercraft:hover_red',
 			recipe = {
-				{'', ing.piston, ing.block},
+				{'', ing.motor, ing.block},
 				{'wool:red', 'wool:red', 'wool:red'},
 				{ing.wool_base, ing.wool_base, ing.wool_base},
 			}
@@ -78,7 +78,7 @@ if core.registered_items[ing.block] and core.registered_items[ing.wool_base] the
 		minetest.register_craft({
 			output = 'hovercraft:hover_blue',
 			recipe = {
-				{'', ing.piston, ing.block},
+				{'', ing.motor, ing.block},
 				{'wool:blue', 'wool:blue', 'wool:blue'},
 				{ing.wool_base, ing.wool_base, ing.wool_base},
 			}
@@ -89,7 +89,7 @@ if core.registered_items[ing.block] and core.registered_items[ing.wool_base] the
 		minetest.register_craft({
 			output = 'hovercraft:hover_green',
 			recipe = {
-				{'', ing.piston, ing.block},
+				{'', ing.motor, ing.block},
 				{'wool:green', 'wool:green', 'wool:green'},
 				{ing.wool_base, ing.wool_base, ing.wool_base},
 			}
@@ -100,7 +100,7 @@ if core.registered_items[ing.block] and core.registered_items[ing.wool_base] the
 		minetest.register_craft({
 			output = 'hovercraft:hover_yellow',
 			recipe = {
-				{'', ing.piston, ing.block},
+				{'', ing.motor, ing.block},
 				{'wool:yellow', 'wool:yellow', 'wool:yellow'},
 				{ing.wool_base, ing.wool_base, ing.wool_base},
 			}
