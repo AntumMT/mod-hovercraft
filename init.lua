@@ -9,104 +9,79 @@ dofile(hover.modpath .. "/hover.lua")
 
 local S = core.get_translator("hovercraft")
 
-hover:register_hovercraft(":hovercraft:hover_red" ,{
-	description = S("Red Hovercraft"),
-	textures = {"hovercraft_red.png"},
-	inventory_image = "hovercraft_red_inv.png",
-	max_speed = 10,
-	acceleration = 0.25,
-	deceleration = 0.05,
-	jump_velocity = 4.0,
-	fall_velocity = 1.0,
-	bounce = 0.5,
-})
+local hover_colors = {
+	red = {
+		max_speed = 10,
+		jump_vel = 4.0,
+		fall_vel = 1.0,
+		bounce = 0.5,
+	},
+	blue = {
+		max_speed = 12,
+		decel = 0.1,
+		jump_vel = 4.0,
+		fall_vel = 1.0,
+		bounce = 0.8,
+	},
+	green = {
+		decel = 0.15,
+		jump_vel = 5.5,
+		fall_vel = 1.5,
+		bounce = 0.5,
+	},
+	yellow = {},
+}
 
-hover:register_hovercraft(":hovercraft:hover_blue" ,{
-	description = S("Blue Hovercraft"),
-	textures = {"hovercraft_blue.png"},
-	inventory_image = "hovercraft_blue_inv.png",
-	max_speed = 12,
-	acceleration = 0.25,
-	deceleration = 0.1,
-	jump_velocity = 4.0,
-	fall_velocity = 1.0,
-	bounce = 0.8,
-})
+for color, c_def in pairs(hover_colors) do
+	local title = ""
+	local whitespace = true
+	for idx=1, #color do
+		local c = color:sub(idx, idx)
+		if whitespace then
+			c = c:upper()
+			whitespace = false
+		end
 
-hover:register_hovercraft(":hovercraft:hover_green" ,{
-	description = S("Green Hovercraft"),
-	textures = {"hovercraft_green.png"},
-	inventory_image = "hovercraft_green_inv.png",
-	max_speed = 8,
-	acceleration = 0.25,
-	deceleration = 0.15,
-	jump_velocity = 5.5,
-	fall_velocity = 1.5,
-	bounce = 0.5,
-})
+		if c == "_" then
+			c = " "
+			whitespace = true
+		end
 
-hover:register_hovercraft(":hovercraft:hover_yellow" ,{
-	description = S("Yellow Hovercraft"),
-	textures = {"hovercraft_yellow.png"},
-	inventory_image = "hovercraft_yellow_inv.png",
-	max_speed = 8,
-	acceleration = 0.25,
-	deceleration = 0.05,
-	jump_velocity = 3.0,
-	fall_velocity = 0.5,
-	bounce = 0.25,
-})
+		title = title .. c
+	end
+
+	hover:register_hovercraft(":hovercraft:hover_" .. color, {
+		description = S(title .. " Hovercraft"),
+		textures = {"hovercraft_" .. color .. ".png"},
+		inventory_image = "hovercraft_" .. color .. "_inv.png",
+		max_speed = c_def.max_speed or 8,
+		acceleration = c_def.accel or 0.25,
+		deceleration = c_def.decel or 0.05,
+		jump_velocity = c_def.jump_vel or 3.0,
+		fall_velocity = c_def.fall_vel or 0.5,
+		bounce = c_def.bounce or 0.25,
+	})
+end
 
 
 local ing = {
-	motor = core.registered_items['basic_materials:motor']
-		and 'basic_materials:motor' or '',
-	block = 'default:steelblock',
-	wool_base = 'wool:black',
+	motor = core.registered_items["basic_materials:motor"]
+		and "basic_materials:motor" or "",
+	block = "default:steelblock",
+	wool_base = "wool:black",
 }
 
 if core.registered_items[ing.block] and core.registered_items[ing.wool_base] then
-	if core.registered_items['wool:red'] then
-		minetest.register_craft({
-			output = 'hovercraft:hover_red',
-			recipe = {
-				{'', ing.motor, ing.block},
-				{'wool:red', 'wool:red', 'wool:red'},
-				{ing.wool_base, ing.wool_base, ing.wool_base},
-			}
-		})
-	end
-
-	if core.registered_items['wool:blue'] then
-		minetest.register_craft({
-			output = 'hovercraft:hover_blue',
-			recipe = {
-				{'', ing.motor, ing.block},
-				{'wool:blue', 'wool:blue', 'wool:blue'},
-				{ing.wool_base, ing.wool_base, ing.wool_base},
-			}
-		})
-	end
-
-	if core.registered_items['wool:green'] then
-		minetest.register_craft({
-			output = 'hovercraft:hover_green',
-			recipe = {
-				{'', ing.motor, ing.block},
-				{'wool:green', 'wool:green', 'wool:green'},
-				{ing.wool_base, ing.wool_base, ing.wool_base},
-			}
-		})
-	end
-
-	if core.registered_items['wool:yellow'] then
-		minetest.register_craft({
-			output = 'hovercraft:hover_yellow',
-			recipe = {
-				{'', ing.motor, ing.block},
-				{'wool:yellow', 'wool:yellow', 'wool:yellow'},
-				{ing.wool_base, ing.wool_base, ing.wool_base},
-			}
-		})
+	for color in pairs(hover_colors) do
+		if core.registered_items["wool:" .. color] then
+			core.register_craft({
+				output = "hovercraft:hover_" .. color,
+				recipe = {
+					{"", ing.motor, ing.block},
+					{"wool:" .. color, "wool:" .. color, "wool:" .. color},
+					{ing.wool_base, ing.wool_base, ing.wool_base},
+				},
+			})
+		end
 	end
 end
