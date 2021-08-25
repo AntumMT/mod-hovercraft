@@ -5,7 +5,7 @@ A fun alternative mode of transport for Minetest.
 
 Controls
 ========
-	
+
 	Forward (W)	Thrust
 	Jump (Space)	Jump
 	Mouse Move	Rotate
@@ -27,3 +27,12 @@ Entity Duplication: See above. This usually occurs when you move a given
 distance from where the entity was originally placed. The only solution
 right now is to restrict the hovercraft to a certain area. For example,
 create a sunken race track the hovercraft cannot physically escape from.
+
+Texture Licensing
+=================
+
+Original colors by Stuart Jones (CC BY-SA 3.0):
+- [Red, Blue, Green, Yellow]
+
+Extended colors by Michiyo Tagami (based on Stuard Jones's originals) (CC BY-SA 3.0):
+- [White, Grey, Dark Grey, Black, Cyan, Dark Green, Orange, Brown, Pink, Magenta, Violet]

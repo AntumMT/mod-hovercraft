@@ -32,6 +32,22 @@ local hover_colors = {
 	yellow = {},
 }
 
+
+if core.settings:get_bool("hovercraft.extended_colors", true) then
+	for _, color in ipairs({"white", "black", "grey", "dark_grey", "cyan",
+			"orange", "brown", "pink", "magenta", "violet", "dark_green"}) do
+		hover_colors[color] = {
+			max_speed = 12,
+			accel = 0.25,
+			decel = 0.05,
+			jump_vel = 3.0,
+			fall_vel = 0.5,
+			bounce = 0.25,
+		}
+	end
+end
+
+
 for color, c_def in pairs(hover_colors) do
 	local title = ""
 	local whitespace = true

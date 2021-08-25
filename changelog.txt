@@ -1,4 +1,9 @@
 
+v1.1
+----
+- added extended colors from michyo's fork: https://github.com/michyo/hovercramt
+
+
 v1.0
 ----
 - forked from stu's original hovercraft
